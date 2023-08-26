@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block body %}
+    <h1>Searching for "{{ string }}":</h1>
+    <ul>
+        {% for possibility in possibilities %}
+            <li class="mb-2"><a href="{% url 'wiki_entry' possibility %}">{{possibility}}</a></li>
+        {% empty %}
+            No results found
+        {% endfor %}
+    </ul>
+{% endblock %}
